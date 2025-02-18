@@ -13,7 +13,7 @@ class HDHS(object):
 
     def __init__(self,
                  k_min = 10,
-                 max_weight_percentile=50,
+                 max_weight_percentile=90,
                  clear_ratio = None,
                  alpha = 0.5,
                  p_norm=2,
