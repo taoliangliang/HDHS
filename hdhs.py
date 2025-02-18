@@ -9,7 +9,7 @@ __author__ = 'taoll'
 
 
 
-class NCLHS(object):
+class HDHS(object):
 
     def __init__(self,
                  k_min = 10,
@@ -27,19 +27,19 @@ class NCLHS(object):
         self.verbose = verbose
 
     def fit(self,X,y):
-        #检查输入数据是否符合模型的要求
+
         self.X = check_array(X)
         self.y = np.array(y)
 
         classes = np.unique(y)
-        # 类别数量降序排序
+    
         sizes = np.array([sum(y == c) for c in classes])
         indices = np.argsort(sizes)[::-1]
         self.unique_classes_ = classes[indices]
-        # 样本字典，ey为类别标签，val为对应类别数据
+     
         self.observation_dict = {c: X[y == c] for c in classes}
         self.maj_class_ = self.unique_classes_[0]
-        # 最大多数类数量
+   
         n_max = max(sizes)
         if self.verbose:
             print(
